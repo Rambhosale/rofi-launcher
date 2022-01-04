@@ -26,7 +26,7 @@ def run():
         enteredQuery = cm.showRofiData('Search >', cm.getSearchEnginesKeys(search_engines.engines))
 
         # get the search key and searchEngine from the search query
-        searchHash = enteredQuery.split(":")
+        searchHash = enteredQuery.split(":", 1)
 
         if searchHash[0] not in search_engines.engines.keys():
             engine = 'dd'
