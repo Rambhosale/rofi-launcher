@@ -6,8 +6,8 @@ import webbrowser
 def run():
     modes = ["search", "doc"]
 
-# select the mode to work on
-    selected_mode = cm.showRofiData("Select a mode", cm.convertToString(modes))
+    # select the mode to work on
+    selected_mode = cm.launch_rofi("Select a mode", cm.convert_dict_to_options(modes))
 
 
     docList = ds.sources
@@ -23,7 +23,7 @@ def run():
 
     if selected_mode == 'Search':
 
-        enteredQuery = cm.showRofiData('Search >', cm.getSearchEnginesKeys(search_engines.engines))
+        enteredQuery = cm.launch_rofi('Search >', cm.get_search_engines_keys(search_engines.engines))
 
         # get the search key and searchEngine from the search query
         searchHash = enteredQuery.split(":", 1)
@@ -39,13 +39,13 @@ def run():
         exit()
 
     elif selected_mode == 'Doc':
-        step_2 = cm.showRofiData('Search ' + selected_mode, cm.convertToString(docList.keys()))
+        step_2 = cm.launch_rofi('Search ' + selected_mode, cm.convert_dict_to_options(docList.keys()))
 
         # have a default value if nothing is selected in docs list
         if step_2 not in docList.keys():
             step_2 = 'Laravel'
 
-        step_3 = cm.showRofiData('Search ' + selected_mode, cm.convertToString(docList[step_2]))
+        step_3 = cm.launch_rofi('Search ' + selected_mode, cm.convert_dict_to_options(docList[step_2]))
 
         doc_url = step_3.split(': ')
 

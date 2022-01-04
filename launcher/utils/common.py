@@ -4,7 +4,7 @@ def dd(data):
     print(data)
     exit()
 
-def convertToString(contents) -> str :
+def convert_dict_to_options(contents) -> str :
     stringiFied = ""
 
     if isinstance(contents, dict):
@@ -16,7 +16,7 @@ def convertToString(contents) -> str :
 
     return stringiFied
 
-def showRofiData(query: str, listData: str):
+def launch_rofi(query: str, listData: str):
     status = sp.run(['rofi' ,'-dmenu', '-i', '-l', '20', '-p', query], stdout=sp.PIPE, input=listData, universal_newlines=True)
 
     # exit if none of the options are slelected
@@ -25,7 +25,7 @@ def showRofiData(query: str, listData: str):
 
     return status.stdout.replace('\n', '').strip(' ')
 
-def getSearchEnginesKeys(searchEngines):
+def get_search_engines_keys(searchEngines):
     out = ''
     for engine in searchEngines:
 
