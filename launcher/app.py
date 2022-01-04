@@ -30,7 +30,7 @@ def run():
 
         if searchHash[0] not in search_engines.engines.keys():
             engine = 'dd'
-            searchQuery = searchHash[0]
+            searchQuery = enteredQuery
         else:
             engine = searchHash[0]
             searchQuery = searchHash[1]
