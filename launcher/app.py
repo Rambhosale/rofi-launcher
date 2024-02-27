@@ -48,5 +48,6 @@ def run():
         step_3 = cm.launch_rofi('Search ' + selected_mode, cm.convert_dict_to_options(docList[step_2]))
 
         doc_url = step_3.split(': ')
+        url = doc_url[1].replace('{version}', '10.x')
 
-        webbrowser.open(doc_url[1])
+        webbrowser.open(url)
