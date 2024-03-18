@@ -28,7 +28,6 @@ def launch_rofi(query: str, listData: str):
 def get_search_engines_keys(searchEngines):
     out = ''
     for engine in searchEngines:
-
         # populate the map of seatchEngiens
         out += searchEngines[engine]["name"] + ' ' + engine + ':\n'
 
